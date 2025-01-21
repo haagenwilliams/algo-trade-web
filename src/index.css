@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer components {
+      .animated-button {
+        @apply relative overflow-hidden transition-all duration-300;
+      }
+
+      .animated-button::before {
+        @apply content-[''] absolute top-0 left-0 w-full h-full bg-white opacity-0 transition-opacity duration-300;
+        transform: scale(0);
+        transform-origin: center;
+        border-radius: inherit;
+      }
+
+      .animated-button:hover::before {
+        @apply opacity-10;
+        transform: scale(1.5);
+      }
+
+      .animated-button:active::before {
+        @apply opacity-20;
+        transform: scale(1);
+      }
+
+      .pop-button {
+        @apply transform transition-transform duration-200 ease-in-out;
+      }
+
+      .pop-button:hover {
+        @apply scale-105;
+      }
+
+      .pop-button:active {
+        @apply scale-95;
+      }
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+    }
